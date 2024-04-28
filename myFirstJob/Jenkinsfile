@@ -8,7 +8,6 @@ podTemplate(yaml: """\
         command:
         - sleep
         - infinity
-      serviceAccount: jenkins-robot
     """.stripIndent()) {
     node(POD_LABEL) {
       container('alpine') {
