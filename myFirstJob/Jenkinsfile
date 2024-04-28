@@ -11,10 +11,6 @@ podTemplate(yaml: """\
     """.stripIndent()) {
     node(POD_LABEL) {
       container('alpine') {
-        stage("Prepare"){
-          checkout scm
-        }
-
         stage("Preparation"){
           sh"""
           apk update && apk add curl
