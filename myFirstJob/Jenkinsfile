@@ -1,4 +1,4 @@
-podTemplate(yaml: """\
+podTemplate(yaml:
     apiVersion: v1
     kind: Pod
     spec:
@@ -8,7 +8,7 @@ podTemplate(yaml: """\
         command:
         - sleep
         - infinity
-    """.stripIndent()) {
+    .stripIndent()) {
     node() {
       container('alpine') {
         stage("Prepare"){
