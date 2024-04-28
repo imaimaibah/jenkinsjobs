@@ -1,0 +1,31 @@
+podTemplate(yaml: """\
+    apiVersion: v1
+    kind: Pod
+    spec:
+      containers:
+      - name: alpine
+        image: alpine
+        command:
+        - sleep
+        - infinity
+    """.stripIndent()) {
+    node() {
+      container('alpine') {
+        stage("Prepare"){
+          checkout scm
+        }
+
+        stage("Preparation"){
+          sh"""
+          apk update && apk add curl
+          """
+        }
+
+        stage("job"){
+          sh"""
+          echo "First Job"
+          """
+        }
+      }
+    }
+}
